@@ -1,6 +1,20 @@
 import React, { useState } from "react";
 
+/**
+ *  the act of using state to hold the data from the form is - data binding
+ *  the handleSubmit handles submission of form values
+ * the handleChange keeps track and updates changes in the input field
+ *
+ * formData is the current state and setForm data is set to change values
+ * useState is a react hook and builtin functions
+ *
+ * on submit or on" anything" are regarded as eventHandlers
+ * ${} are known as template literals they're use for binding data
+ * @returns Forms
+ */
+
 function UserForm() {
+  // this is an array destructuring for state
   const [formData, setFormData] = useState({
     username: "",
     password: "",

@@ -1,5 +1,5 @@
 import React from "react";
-import UserName from "./UserName";
+import UserNameProps from "./UserNameProps";
 
 /**
  * props are only called in the child components
@@ -13,7 +13,7 @@ import UserName from "./UserName";
 const UserProfile = () => {
   return (
     <div>
-      UserProfile: <UserName age={30} marital="married" />
+      UserProfile: <UserNameProps age={30} marital="married" />
     </div>
   );
 };
