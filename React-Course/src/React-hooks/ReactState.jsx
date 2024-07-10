@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import UserState from "../components/stateComponents/UserState";
 
 /**
- * state is a representation of data that changes over time
- * think of it like a variable
- * stores data within the react components
- * it is an inbuilt object
+ * State is a representation of data that changes over time.
+ * It stores data within the React components and is an inbuilt object.
  *
- * they're different ways to handle state
- * @returns state
+ * @returns State
  */
 
 function ReactState() {

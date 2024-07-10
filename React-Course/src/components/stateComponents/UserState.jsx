@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // UserState component receives a user object and a setUsers function as props
-function UserState({ user, setUsers }) {
+function UserState(user, setUsers) {
   // State to toggle between editing mode
   const [isEditing, setIsEditing] = useState(false);
 
   // State to manage the form data for manipulating the user details
   const [formData, setFormData] = useState({
-    username: user.username,
-    email: user.email,
+    username: "",
+    email: "",
   });
+
+  // Effect to set initial formData based on user prop
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        username: user.username,
+        email: user.email,
+      });
+    }
+  }, [user]);
 
   // Handler for form input changes
   const handleInputChange = (e) => {
@@ -23,16 +33,14 @@ function UserState({ user, setUsers }) {
   // Handler for saving changes
   const handleSave = () => {
     setUsers((currentUsers) =>
-      // array mapping and callback function
       currentUsers.map((currentUser) =>
-        // ternary if else statement
         currentUser.id === user.id
           ? { ...currentUser, ...formData }
           : currentUser
       )
     );
 
-    //since we're saving and no longer editing turn this to false
+    // Since we're saving and no longer editing, turn this to false
     setIsEditing(false);
   };
 
@@ -43,10 +51,14 @@ function UserState({ user, setUsers }) {
     );
   };
 
+  if (!user) {
+    return <div>Loading...</div>; // Fallback UI if user is undefined
+  }
+
   return (
-    <div>
+    <div className="">
       <div>
-        <p>ID:</p>
+        <p className=" font-semibold text-2xl text-rose-500  ">ID:</p>
         <span>{user.id}</span>
       </div>
       <div>
@@ -76,7 +88,11 @@ function UserState({ user, setUsers }) {
         )}
       </div>
       <div>
-        <button onClick={() => setIsEditing((currentState) => !currentState)}>
+        <button
+          className="py-1 px-2 w-[30%] rounded-md border-2 bg-blue-500 border-red-500 text-sm font-semibold 
+           text-white md:text-2xl lg:text-2xl md:rounded-full "
+          onClick={() => setIsEditing((currentState) => !currentState)}
+        >
           {isEditing ? "Cancel" : "Edit"}
         </button>
       </div>
