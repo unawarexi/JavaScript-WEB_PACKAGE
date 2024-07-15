@@ -18,7 +18,7 @@ function ReactState() {
     {
       id: 2,
       username: "gift",
-      email: "gfit@gmail.com",
+      email: "gift@gmail.com",
     },
   ]);
 

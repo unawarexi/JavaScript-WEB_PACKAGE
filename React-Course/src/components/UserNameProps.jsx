@@ -1,14 +1,13 @@
 import React from "react";
 
-const UserName = ({ age, marital }) => {
+function UserNameProps({ age, marital, job, gender }) {
   return (
     <div>
       <p>
-        {" "}
-        this user is {age} and is {marital}
+        this user is {age} and is {marital}, and {job} he has a {gender} kid
       </p>
     </div>
   );
-};
+}
 
-export default UserName;
+export default UserNameProps;

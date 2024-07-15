@@ -1,6 +1,6 @@
 import React from "react";
 
-function ListDetail({ item }) {
+function ListDetail(item) {
   return (
     <div>
       <div>

@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 
+const gotoschool = () => {
+  console.log("i am in school");
+};
+
+gotoschool();
+
 // UserState component receives a user object and a setUsers function as props
 function UserState(user, setUsers) {
   // State to toggle between editing mode
@@ -56,52 +62,58 @@ function UserState(user, setUsers) {
   }
 
   return (
-    <div className="">
+    <div className=" grid grid-rows-1 w-full bg-gray-100 px-2 py-4 justify-center items-center gap-y-4 ">
       <div>
-        <p className=" font-semibold text-2xl text-rose-500  ">ID:</p>
+        <p className="font-semibold text-2xl text-rose-500">ID:</p>
         <span>{user.id}</span>
       </div>
+      {/* =============  THIS IS FOR THE USERNAME INPUT FIELD ================== */}
       <div>
-        <p>USERNAME:</p>
+        <p className="font-bold">USERNAME:</p>
         {isEditing ? (
           <input
             name="username"
             id="username"
             value={formData.username}
-            onChange={handleInputChange}
+            onChange={handleInputChange()}
+            className="py-2 px-2 w-full rounded-md border-2 border-black"
           />
         ) : (
           <span>{user.username}</span>
         )}
       </div>
+
+      {/* =============  THIS IS FOR THE EMAIL INPUT FIELD ================== */}
       <div>
-        <p>Email:</p>
+        <p className="font-bold">Email:</p>
         {isEditing ? (
           <input
             name="email"
             id="email"
             value={formData.email}
             onChange={handleInputChange}
+            className="py-2 px-2 w-full rounded-md border-2 border-black"
           />
         ) : (
           <span>{user.email}</span>
         )}
       </div>
-      <div>
+
+      {/* =============  THIS IS FOR THE BUTTONS ================== */}
+      <div className="px-4 bg-slate-500 py-2 font-semibold text-white text-center rounded-md">
         <button
-          className="py-1 px-2 w-[30%] rounded-md border-2 bg-blue-500 border-red-500 text-sm font-semibold 
-           text-white md:text-2xl lg:text-2xl md:rounded-full "
+          className=""
           onClick={() => setIsEditing((currentState) => !currentState)}
         >
           {isEditing ? "Cancel" : "Edit"}
         </button>
       </div>
       {isEditing && (
-        <div>
+        <div className="px-4 bg-blue-500 py-2 font-semibold text-white text-center rounded-md">
           <button onClick={handleSave}>Save</button>
         </div>
       )}
-      <div>
+      <div className="px-4 bg-red-500 py-2 font-semibold text-white text-center rounded-md">
         <button onClick={handleDelete}>Delete</button>
       </div>
     </div>

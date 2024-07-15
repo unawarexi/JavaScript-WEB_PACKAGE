@@ -10,10 +10,11 @@ import UserNameProps from "./UserNameProps";
  * @returns age and marital
  */
 
-const UserProfile = () => {
+const UserProfile = (props) => {
   return (
-    <div>
-      UserProfile: <UserNameProps age={30} marital="married" />
+    <div className="flex font-semibold text-center items-center justify-center bg-black/10 h-[50%] text-2xl gap-x-4">
+      <h1> UserProfile:</h1>{" "}
+      <UserNameProps age={30} marital=" married" job="software engineer" />
     </div>
   );
 };

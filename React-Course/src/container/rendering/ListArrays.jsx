@@ -68,14 +68,12 @@ const items = [
   },
 ];
 
-function ListArrays({}) {
+function ListArrays() {
   return (
     <div>
-      <div>
-        {items.map((info) => (
-          <ListDetail key={info.id} item={info} />
-        ))}
-      </div>
+      {items.map((item) => (
+        <ListDetail key={item.id} item={item} />
+      ))}
     </div>
   );
 }
