@@ -7,8 +7,11 @@ import UserState from "./components/stateComponents/UserState";
 import UserProfile from "./components/UserProfileProps";
 // import ListArrays from "./container/rendering/ListArrays";
 import ListDetail from "./container/rendering/ListDetail";
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Layout/Home";
+import ReactRouter from "./React-Navigation/ReactRouter";
+import DynamicRoute from "./React-Navigation/DynamicRoute";
+import AxiosList from "./React-Apis/AxiosList";
 
 function App() {
   return (
@@ -17,8 +20,11 @@ function App() {
       {/* <ListDetail /> */}
       {/* <UserProfile />
       <SecondPropComp /> */}
+
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<ReactRouter />} />
+        <Route path="/auth" element={<DynamicRoute />} />
+        <Route path="/axios" element={<AxiosList />} />
       </Routes>
     </div>
 
