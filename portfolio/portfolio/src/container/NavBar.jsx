@@ -4,17 +4,20 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   /**
-   * ISLOGGED IS THE CURRENT STATE
-   * SETISLOGGED UPDATES THE CURRENT STATE
-   * USESTATE == TRUE IS THE INITIAL STATE OF YOUR COMPONENTS
+   * ISLOGGED is the current state and use it give instructions or logic
+   * SETISLOGGED updates the current state
+   * USESTATE == TRUE;  is the initial state of your components
+   *
+   * tips study state, hooks and rules, conditonal / stateful rendering
    */
 
   const [IsLogged, setIsLogged] = useState(true);
 
-  // const logging = () => {
-  //   setIsLogged(!IsLogged);
-  // };
-
+  /**
+   *  The NavLinks are known as array of objects
+   *
+   * tips: study;  array methods, uses of keys
+   */
   const NavLinks = [
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
@@ -39,6 +42,8 @@ function NavBar() {
           </svg>
           <span className="ml-3 text-xl">Tailblocks</span>
         </a>
+
+        {/* ==================== THIS IS DYNAMIC RENDERING USING MAPPING  ====================== */}
         <div className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           <ul className="md:ml-auto flex flex-wrap items-center text-base justify-center">
             {NavLinks.map((links, index) => (
@@ -47,11 +52,9 @@ function NavBar() {
               </li>
             ))}
           </ul>
-          {/* <a className="mr-5 hover:text-gray-900">First Link</a>
-          <a className="mr-5 hover:text-gray-900">Second Link</a>
-          <a className="mr-5 hover:text-gray-900">Third Link</a>
-          <a className="mr-5 hover:text-gray-900">Fourth Link</a> */}
         </div>
+
+        {/* ==================== THIS IS CONDITIONAL RENDERING USING TERNARY STATEMENTS ====================== */}
         <button
           onClick={() => setIsLogged(!IsLogged)}
           className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
