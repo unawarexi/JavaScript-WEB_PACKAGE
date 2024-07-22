@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Images from "../assets/Image";
 import { Link } from "react-router-dom";
 
 function NavBar() {
+  /**
+   * ISLOGGED IS THE CURRENT STATE
+   * SETISLOGGED UPDATES THE CURRENT STATE
+   * USESTATE == TRUE IS THE INITIAL STATE OF YOUR COMPONENTS
+   */
+
+  const [IsLogged, setIsLogged] = useState(true);
+
+  // const logging = () => {
+  //   setIsLogged(!IsLogged);
+  // };
+
   const NavLinks = [
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
@@ -28,7 +40,7 @@ function NavBar() {
           <span className="ml-3 text-xl">Tailblocks</span>
         </a>
         <div className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <ul>
+          <ul className="md:ml-auto flex flex-wrap items-center text-base justify-center">
             {NavLinks.map((links, index) => (
               <li key={index} className="mr-5 hover:text-gray-900">
                 <Link to={links.path}>{links.name}</Link>
@@ -40,8 +52,11 @@ function NavBar() {
           <a className="mr-5 hover:text-gray-900">Third Link</a>
           <a className="mr-5 hover:text-gray-900">Fourth Link</a> */}
         </div>
-        <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-          Button
+        <button
+          onClick={() => setIsLogged(!IsLogged)}
+          className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+        >
+          {IsLogged ? <>log Out</> : <>Log In</>}
           <svg
             fill="none"
             stroke="currentColor"
