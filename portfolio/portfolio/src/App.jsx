@@ -6,6 +6,7 @@ import HeroSection from "./components/HeroSection";
 import MainLayout from "./layouts/MainLayout";
 import SecondHeroSection from "./components/SecondHeroSection";
 import PortFolio from "./layouts/PortFolio";
+import Authentication from "./container/auth/Authentication";
 
 function App() {
   const change = true;
@@ -24,8 +25,9 @@ function App() {
         <MainLayout>
           <Routes>
             {/* Conditionally render either HeroSection or SecondHeroSection based on the value of change */}
+            <Route path="/" element={<Authentication />} />
             <Route
-              path="/"
+              path="/home"
               element={
                 change ? (
                   <>

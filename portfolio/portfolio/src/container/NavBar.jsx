@@ -1,29 +1,27 @@
 import React, { useState } from "react";
-import Images from "../assets/Image";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavBar() {
   /**
-   * ISLOGGED is the current state and use it give instructions or logic
-   * SETISLOGGED updates the current state
-   * USESTATE == TRUE;  is the initial state of your components
-   *
-   * tips study state, hooks and rules, conditonal / stateful rendering
+   * THE usestate is to verify if its true or not to auto route
+   * based on the button clicked
    */
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const navigate = useNavigate();
 
-  const [IsLogged, setIsLogged] = useState(true);
+  const handleAuthentication = () => {
+    // this is a call back function and "prevAuth" is a parameter
+    setIsAuthenticated((prevAuth) => !prevAuth);
+    navigate("/");
+  };
 
-  /**
-   *  The NavLinks are known as array of objects
-   *
-   * tips: study;  array methods, uses of keys
-   */
-  const NavLinks = [
+  const navLinks = [
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
+
   return (
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -32,9 +30,9 @@ function NavBar() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
             viewBox="0 0 24 24"
           >
@@ -43,29 +41,27 @@ function NavBar() {
           <span className="ml-3 text-xl">Tailblocks</span>
         </a>
 
-        {/* ==================== THIS IS DYNAMIC RENDERING USING MAPPING  ====================== */}
         <div className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           <ul className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            {NavLinks.map((links, index) => (
+            {navLinks.map((link, index) => (
               <li key={index} className="mr-5 hover:text-gray-900">
-                <Link to={links.path}>{links.name}</Link>
+                <Link to={link.path}>{link.name}</Link>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* ==================== THIS IS CONDITIONAL RENDERING USING TERNARY STATEMENTS ====================== */}
         <button
-          onClick={() => setIsLogged(!IsLogged)}
+          onClick={handleAuthentication}
           className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
         >
-          {IsLogged ? <>log Out</> : <>Log In</>}
+          {isAuthenticated ? "Log Out" : "Log In"}
           <svg
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             className="w-4 h-4 ml-1"
             viewBox="0 0 24 24"
           >
