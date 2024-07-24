@@ -9,8 +9,15 @@ import PortFolio from "./layouts/PortFolio";
 import Authentication from "./container/auth/Authentication";
 
 function App() {
-  const change = true;
+  const [Change, setChange] = useState(true);
 
+  const handleChange = () => {
+    if (!Change) {
+      setChange(false);
+    } else {
+      setChange(true);
+    }
+  };
   // const renderElements = () => {
   //   if (change) {
   //     return <HeroSection />;
@@ -29,7 +36,7 @@ function App() {
             <Route
               path="/home"
               element={
-                change ? (
+                handleChange ? (
                   <>
                     <HeroSection />
                     <PortFolio />
@@ -39,7 +46,7 @@ function App() {
                 )
               }
             />
-            <Route path="/portfolio" element={change && <PortFolio />} />
+            <Route path="/portfolio" element={Change && <PortFolio />} />
           </Routes>
         </MainLayout>
       </BrowserRouter>

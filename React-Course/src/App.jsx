@@ -12,6 +12,7 @@ import Home from "./Layout/Home";
 import ReactRouter from "./React-Navigation/ReactRouter";
 import DynamicRoute from "./React-Navigation/DynamicRoute";
 import AxiosList from "./React-Apis/AxiosList";
+import IndexComponent from "./React-Redux/components/IndexComponent";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<ReactRouter />} />
         <Route path="/auth" element={<DynamicRoute />} />
         <Route path="/axios" element={<AxiosList />} />
+        <Route path="/redux" element={<IndexComponent />} />
       </Routes>
     </div>
 

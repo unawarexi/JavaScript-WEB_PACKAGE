@@ -18,6 +18,22 @@ This guide covers everything you need to know about using Redux with React, incl
 
 Redux is a predictable state container for JavaScript applications. It helps you write applications that behave consistently, run in different environments, and are easy to test. Redux can be used with any JavaScript framework, but it is most commonly used with React.
 
+In React Redux, useSelector and useDispatch are hooks that provide an interface to interact with the Redux store. Here are the uses of each:
+
+#### useSelector
+
+- **Access Redux State**: Allows components to read data from the Redux store state.
+- **Component Re-Rendering**: Automatically re-renders the component when the selected state changes, ensuring the UI stays in sync with the Redux store.
+- **Memoization**: Uses shallow comparison to optimize re-renders, avoiding unnecessary updates if the selected state has not changed.
+- **Selective State Access**: Enables components to subscribe to only the portions of the state they need, improving performance and reducing coupling between components and the entire store.
+
+#### useDispatch
+
+- **Dispatch Actions**: Provides a way to send actions to the Redux store to trigger state changes.
+- **Action Creators**: Can be used with action creators to dispatch actions more cleanly and clearly.
+- **Event Handling**: Often used in event handlers (e.g., button clicks) to update the Redux store based on user interactions.
+- **Side Effects Management**: Facilitates dispatching actions that can trigger side effects, such as asynchronous operations or middleware processing.
+
 ## Installation
 
 To get started with Redux in a React project, you'll need to install the following packages:
