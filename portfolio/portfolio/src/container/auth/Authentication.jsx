@@ -50,6 +50,7 @@ const Authentication = () => {
           className="w-full h-full object-cover"
         />
       </div>
+
       <div className="container px-5 py-24 mx-auto flex justify-center items-center h-screen">
         <Formik
           initialValues={{ email: "", password: "" }}

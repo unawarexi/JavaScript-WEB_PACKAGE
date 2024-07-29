@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 // import { Footer, NavBar } from "./container/ExportContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import HeroSection from "./components/HeroSection";
 import MainLayout from "./layouts/MainLayout";
 import SecondHeroSection from "./components/SecondHeroSection";
@@ -33,7 +34,7 @@ function App() {
           <Routes>
             {/* Conditionally render either HeroSection or SecondHeroSection based on the value of change */}
             <Route path="/" element={<Authentication />} />
-            <Route
+            {/* <Route
               path="/home"
               element={
                 handleChange ? (
@@ -45,7 +46,7 @@ function App() {
                   <SecondHeroSection />
                 )
               }
-            />
+            /> */}
             <Route path="/portfolio" element={Change && <PortFolio />} />
           </Routes>
         </MainLayout>
