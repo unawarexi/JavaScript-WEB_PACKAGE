@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Categories from "./Categories";
 
 function AxiosList() {
   // State to hold the list of recipes
@@ -46,6 +47,7 @@ function AxiosList() {
 
   return (
     <div className="container mx-auto p-4">
+      <Categories />
       <h1 className="text-2xl font-bold mb-4">Recipe List</h1>
       {/* Form to input query */}
       <form onSubmit={handleSubmit} className="mb-4">
@@ -84,7 +86,7 @@ function AxiosList() {
                 className="w-full h-auto mt-2 rounded"
               />
               {/* Recipe title */}
-              <h2 className="text-xl font-semibold">{recipe.strMeal}</h2>
+              <h2 className="text-xl font-semibold pt-4">{recipe.strMeal}</h2>
               {/* Recipe instructions */}
               {/* <p className="text-gray-700">{recipe.strInstructions}</p> */}
             </li>
